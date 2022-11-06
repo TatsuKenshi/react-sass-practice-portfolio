@@ -1,0 +1,99 @@
+@import "./resets";
+@import "./variables";
+
+// functions
+// function declaration, just like in JS
+// parentheses hold the parameter
+// we return with @return
+// map-get($map-name, $key-name)
+// should be used to compute and return values
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+// mixins are groups of properties we apply in bulk
+// mixins can also take arguments
+// mixins should define styles
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+// light/dark theme mixin
+// parameters can have default values, like in JS
+// mixins can contain if statements, like in JS
+// this one switches the color theme
+// lighten and darken are methods built into sass
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primary-color, 100%);
+    color: darken($text-color, 100%);
+  }
+}
+
+// mixins can also help with media queries
+@mixin mobile {
+  // we've given the max-width as a variable
+  @media (max-width: $mobile) {
+    // @content makes sure we display the contents of the element where the mixin is included
+    @content;
+  }
+}
+
+body {
+  background: $primary-color;
+  color: $text-color;
+}
+
+.main {
+  // include a mixin
+  // @include mixin-name()
+  @include flexCenter(row);
+
+  // calculation in SASS works without the calc() method
+  // but, sass can't mix types 80% - 40px won't work
+  width: 80% - 40%;
+  margin: 0 auto;
+
+  // nesting
+  // this p tag affects only paragraphs within the element which contains the above class
+
+  // empersand covers the .main portion in .main-paragraph
+  &-paragraph1 {
+    // this is how you select a value from a map
+    // property-name: map-get($map-name, key-name)
+    color: $accent-color;
+    font-weight: map-get($font-weights, bold);
+
+    // add an effect with empersand instead of repeating class name
+    &:hover {
+      color: pink;
+
+      // calling the function
+      // functionName(key-name)
+      font-weight: weight(regular);
+    }
+  }
+
+  // include the mixin for the small screen
+  // set flex-direction to column
+  @include mobile {
+    flex-direction: column;
+  }
+
+  // we can extend classes
+  // and change details we want to change
+  &-paragraph2 {
+    @extend .main-paragraph1;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.light {
+  @include theme($light-theme: true);
+}
