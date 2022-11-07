@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <>
       <header>
-        <h1>Hello</h1>
         <div className="menu-btn">
           <span className="menu-btn__burger"></span>
         </div>
@@ -44,7 +43,7 @@ const Home = () => {
         <section className="home">
           <h2>Hi! My Name Is</h2>
           <h1 className="home__name">
-            Mike <span className="home__name--last">Smith</span>
+            John <span className="home__name--last">M. Doe</span>
           </h1>
           <h2>Web Developer, Designer & Programmer</h2>
 
