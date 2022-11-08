@@ -23,28 +23,48 @@ const Home = () => {
             className={spinner ? "menu-btn__burger" : "menu-btn__burger open"}
           ></span>
         </div>
-        <nav>
-          <ul className="menu-nav">
-            <li className="menu-nav__item active">
-              <NavLink to="/" className="menu-nav__link">
+        <nav className={spinner ? "nav" : "nav open"}>
+          <ul className={spinner ? "menu-nav" : "menu-nav open"}>
+            <li className={spinner ? "menu-nav__item" : "menu-nav__item open"}>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "menu-nav__link active" : "menu-nav__link"
+                }
+              >
                 Home
               </NavLink>
             </li>
 
-            <li className="menu-nav__item">
-              <NavLink to="/about" className="menu-nav__link">
+            <li className={spinner ? "menu-nav__item" : "menu-nav__item open"}>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "menu-nav__link active" : "menu-nav__link"
+                }
+              >
                 About Me
               </NavLink>
             </li>
 
-            <li className="menu-nav__item">
-              <NavLink to="/projects" className="menu-nav__link">
+            <li className={spinner ? "menu-nav__item" : "menu-nav__item open"}>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive ? "menu-nav__link active" : "menu-nav__link"
+                }
+              >
                 My Projects
               </NavLink>
             </li>
 
-            <li className="menu-nav__item">
-              <NavLink to="/contact" className="menu-nav__link">
+            <li className={spinner ? "menu-nav__item" : "menu-nav__item open"}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "menu-nav__link active" : "menu-nav__link"
+                }
+              >
                 Contact Me
               </NavLink>
             </li>
