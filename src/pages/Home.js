@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styling/Home.scss";
 import { NavLink } from "react-router-dom";
 import { FaTwitter, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
 
 const Home = () => {
+  const [spinner, setSpinner] = useState(true);
+  console.log(spinner);
   return (
     <>
       <header>
-        <div className="menu-btn">
-          <span className="menu-btn__burger"></span>
+        <div
+          className="menu-btn"
+          onClick={() => {
+            if (spinner) {
+              setSpinner(false);
+            } else {
+              setSpinner(true);
+            }
+          }}
+        >
+          <span
+            className={spinner ? "menu-btn__burger" : "menu-btn__burger open"}
+          ></span>
         </div>
         <nav>
           <ul className="menu-nav">
