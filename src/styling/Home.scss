@@ -1,6 +1,7 @@
 @import "./config";
 @import "./home";
 @import "./menu";
+@import "./About";
 
 body {
   background: $primary-color;
@@ -21,21 +22,16 @@ a {
   text-decoration: none;
 }
 
+.text-secondary {
+  color: $secondary-color;
+}
+
 header {
   position: fixed;
   z-index: 1000;
   width: 100%;
   padding: 1rem;
 }
-
-// ul {
-//   display: flex;
-//   list-style: none;
-
-//   li {
-//     margin-left: 0.5rem;
-//   }
-// }
 
 main {
   height: 100%;
