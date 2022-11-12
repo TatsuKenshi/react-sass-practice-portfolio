@@ -15,7 +15,7 @@ import img4 from "../images/project-4.jpg";
 import img5 from "../images/project-5.jpg";
 import img6 from "../images/project-6.jpg";
 
-const About = () => {
+const Projects = () => {
   const [spinner, setSpinner] = useState(true);
   console.log(spinner);
   return (
@@ -85,7 +85,7 @@ const About = () => {
       </header>
 
       <main>
-        <section className="about">
+        <section className="projects">
           <div className="projects__bio-image">
             <h1 className="text-secondary">My Projects</h1>
           </div>
@@ -186,4 +186,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Projects;
